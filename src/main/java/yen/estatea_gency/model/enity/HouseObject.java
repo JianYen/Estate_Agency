@@ -63,6 +63,10 @@ public class HouseObject {
     @OneToMany
     private Set<Comment> comments;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Integer getId() {
         return id;
     }
@@ -165,5 +169,13 @@ public class HouseObject {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -26,6 +26,10 @@ public class User {
     @OneToMany
     private Set<Comment> comments;
 
+    @JsonIgnore
+    @OneToMany
+    private Set<HouseObject> houseObjects;
+
     public Integer getId() {
         return id;
     }
@@ -64,5 +68,13 @@ public class User {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Set<HouseObject> getHouseObjects() {
+        return houseObjects;
+    }
+
+    public void setHouseObjects(Set<HouseObject> houseObjects) {
+        this.houseObjects = houseObjects;
     }
 }
