@@ -1,8 +1,8 @@
-package yen.estatea_gency.model.response.houst_object;
+package yen.estatea_gency.model.response.houst;
 
-import yen.estatea_gency.model.enity.HouseObject;
+import yen.estatea_gency.model.enity.House;
 
-public class HouseObjectResponse {
+public class HouseResponse {
 
     private Integer id;
     private String objectName;
@@ -77,16 +77,16 @@ public class HouseObjectResponse {
         this.detailAddress = detailAddress;
     }
 
-    public static HouseObjectResponse valueOf(HouseObject houseObject) {
-        HouseObjectResponse response = new HouseObjectResponse();
-        response.setId(houseObject.getId());
-        response.setObjectName(houseObject.getObjectName());
-        response.setDescription(houseObject.getDescription());
-        response.setCity(houseObject.getCity());
-        response.setTownship(houseObject.getTownship());
-        response.setStreet(houseObject.getStreet());
-        response.setDetailAddress(houseObject.getDetail_address());
-        response.setObjectPictures(houseObject.getObjectPictures());
+    public static HouseResponse valueOf(House house) {
+        HouseResponse response = new HouseResponse();
+        response.setId(house.getId());
+        response.setObjectName(house.getObjectName());
+        response.setDescription(house.getDescription());
+        response.setCity(house.getCity());
+        response.setTownship(house.getTownship());
+        response.setStreet(house.getStreet());
+        response.setDetailAddress(house.getDetail_address());
+        response.setObjectPictures(house.getObjectPictures());
         return response;
     }
 }

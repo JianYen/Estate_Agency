@@ -1,6 +1,6 @@
 package yen.estatea_gency.model.enums;
 
-public enum HouseObjectType {
+public enum HouseType {
     SUITE(1, "套房"),
     ROOM(2, "雅房"),
     APARTMENT(3, "大樓");
@@ -8,7 +8,7 @@ public enum HouseObjectType {
     private Integer code;
     private String type;
 
-    HouseObjectType(Integer code, String type) {
+    HouseType(Integer code, String type) {
         this.code = code;
         this.type = type;
     }

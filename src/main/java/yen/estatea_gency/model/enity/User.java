@@ -1,11 +1,13 @@
 package yen.estatea_gency.model.enity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name = "user")
 public class User {
 
@@ -28,7 +30,7 @@ public class User {
 
     @JsonIgnore
     @OneToMany
-    private Set<HouseObject> houseObjects;
+    private Set<House> houses;
 
     public Integer getId() {
         return id;
@@ -70,11 +72,11 @@ public class User {
         this.comments = comments;
     }
 
-    public Set<HouseObject> getHouseObjects() {
-        return houseObjects;
+    public Set<House> getHouseObjects() {
+        return houses;
     }
 
-    public void setHouseObjects(Set<HouseObject> houseObjects) {
-        this.houseObjects = houseObjects;
+    public void setHouseObjects(Set<House> houses) {
+        this.houses = houses;
     }
 }
