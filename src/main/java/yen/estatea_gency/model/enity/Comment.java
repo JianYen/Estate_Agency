@@ -24,7 +24,7 @@ public class Comment {
     private LocalDateTime editDate;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "house_object_id")
+    @JoinColumn(name = "house_id")
     private House house;
 
     @ManyToOne(cascade = CascadeType.MERGE)

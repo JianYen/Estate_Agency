@@ -25,58 +25,11 @@ public class User {
     private String realName;
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     private Set<Comment> comments;
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     private Set<House> houses;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public Set<House> getHouseObjects() {
-        return houses;
-    }
-
-    public void setHouseObjects(Set<House> houses) {
-        this.houses = houses;
-    }
 }

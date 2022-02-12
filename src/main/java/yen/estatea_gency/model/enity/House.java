@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "house_object")
+@Table(name = "house")
 public class House {
 
     @Id
@@ -25,8 +25,8 @@ public class House {
     private String description;
 
     /**房屋照片*/
-    @Column(name = "object_pictures")
-    private String objectPictures;
+    @Column(name = "house_pictures")
+    private String housePictures;
 
     /**房屋所在城市*/
     @Column(name = "city")
@@ -62,7 +62,7 @@ public class House {
 
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "house" ,cascade = CascadeType.MERGE)
     private Set<Comment> comments;
 
     @ManyToOne(cascade = CascadeType.MERGE)

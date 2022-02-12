@@ -86,7 +86,7 @@ public class HouseResponse {
         response.setTownship(house.getTownship());
         response.setStreet(house.getStreet());
         response.setDetailAddress(house.getDetail_address());
-        response.setObjectPictures(house.getObjectPictures());
+        response.setObjectPictures(house.getHousePictures());
         return response;
     }
 }

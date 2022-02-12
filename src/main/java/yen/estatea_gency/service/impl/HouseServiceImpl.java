@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import yen.estatea_gency.model.enity.House;
 import yen.estatea_gency.model.enums.HouseType;
 import yen.estatea_gency.model.response.houst.HouseResponse;
-import yen.estatea_gency.repository.HouseObjectRepository;
+import yen.estatea_gency.repository.HouseRepository;
 import yen.estatea_gency.service.HouseService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class HouseServiceImpl implements HouseService {
 
     @Autowired
-    private HouseObjectRepository houseObjectRepository;
+    private HouseRepository houseRepository;
 
     /**
      * 取出首頁房屋物件列表
@@ -29,11 +29,10 @@ public class HouseServiceImpl implements HouseService {
      * @return
      */
     @Override
-    public Page<HouseResponse> indexHouseList(String keyword, String city, String houseType, int pageNumber, int pageSize) {
-        HouseType type = HouseType.valueOf(houseType);
-        Page<House> houseObjects = houseObjectRepository.indexHouseList(keyword, city, type, PageRequest.of(pageNumber - 1, pageSize));
-        List<HouseResponse> resultList = houseObjects.getContent().stream().map(HouseResponse::valueOf).collect(Collectors.toList());
-        return new PageImpl<>(resultList, PageRequest.of(pageNumber - 1, pageSize), houseObjects.getTotalElements());
+    public Page<HouseResponse> indexHouseList(String keyword, String city, HouseType houseType, int pageNumber, int pageSize) {
+        Page<House> houses = houseRepository.indexHouseList(keyword, city, houseType, PageRequest.of(pageNumber - 1, pageSize));
+        List<HouseResponse> resultList = houses.getContent().stream().map(HouseResponse::valueOf).collect(Collectors.toList());
+        return new PageImpl<>(resultList, PageRequest.of(pageNumber - 1, pageSize), houses.getTotalElements());
     }
 
     /**
@@ -44,6 +43,6 @@ public class HouseServiceImpl implements HouseService {
      */
     @Override
     public HouseResponse getHouseDetail(Integer id) {
-        return HouseResponse.valueOf(houseObjectRepository.findById(id).get());
+        return HouseResponse.valueOf(houseRepository.findById(id).get());
     }
 }
