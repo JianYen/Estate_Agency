@@ -1,14 +1,16 @@
 package yen.estatea_gency.model.enity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import yen.estatea_gency.model.enums.HouseType;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "house")
 public class House {
 
@@ -59,6 +61,10 @@ public class House {
     /**坪數*/
     @Column(name = "houst_area")
     private Double houseArea;
+
+    /**點擊率*/
+    @Column(name = "click_count")
+    private Integer clickCount;
 
 
     @JsonIgnore

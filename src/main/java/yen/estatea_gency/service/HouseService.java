@@ -1,12 +1,14 @@
 package yen.estatea_gency.service;
 
-import org.springframework.data.domain.Page;
 import yen.estatea_gency.model.enums.HouseType;
-import yen.estatea_gency.model.response.houst.HouseResponse;
+import yen.estatea_gency.model.request.hosut.HouseRequest;
+import yen.estatea_gency.model.response.CommonResponse;
 
 public interface HouseService {
 
-    Page<HouseResponse> indexHouseList(String keyword, String city, HouseType houseType, int pageNumber, int pageSize);
+    CommonResponse indexHouseList(String keyword, String city, HouseType houseType, int pageNumber, int pageSize);
 
-    HouseResponse getHouseDetail(Integer id);
+    CommonResponse getHouseDetail(Integer id);
+
+    CommonResponse addHouse(HouseRequest houseRequest);
 }
